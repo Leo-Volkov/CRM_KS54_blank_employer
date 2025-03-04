@@ -4,7 +4,6 @@ import { PersistGate } from 'redux-persist/integration/react'
 import AppRoutes from './routes/Routes'
 import { store, persistor } from '@/app/store/configureStore'
 import './styles/index.css'
-import './styles/normalaiz.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
