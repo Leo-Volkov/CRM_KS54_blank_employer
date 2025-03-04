@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.0",
+    "@tailwindcss/postcss": "^4.0.9",
     "axios": "^1.8.1",
     "classnames": "^2.5.1",
     "react": "^19.0.0",
@@ -35,14 +36,29 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "postcss": "^8.5.3",
     "prettier": "3.5.2",
     "stylelint": "^16.14.1",
     "stylelint-config-standard": "^37.0.0",
     "stylelint-order": "^6.0.4",
     "stylelint-prettier": "^5.0.3",
+    "tailwindcss": "^4.0.9",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
     "vite-plugin-svgr": "^4.3.0"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leo-Volkov/CRM_KS54_blank_employer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leo-Volkov/CRM_KS54_blank_employer/issues"
+  },
+  "homepage": "https://github.com/Leo-Volkov/CRM_KS54_blank_employer#readme"
 }
