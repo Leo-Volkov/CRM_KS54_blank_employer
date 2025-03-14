@@ -3,17 +3,14 @@ import { PageTitle } from '@/shared/ui/PageTitle'
 import { DisciplinesTable } from '@/widgets/DisciplinesTable'
 
 export function Disciplines() {
+  const handleClick = () => {
+    console.log('Предмет добавлен')
+  }
   return (
     <>
-      <PageTitle>Таблица 1</PageTitle>
+      <PageTitle>Дисциплины</PageTitle>
       <div className="mb-4">
-      <ButtonPush
-          onClick={() => {
-            console.log('Предмет добавлен')
-          }}
-        >
-          Добавить предмет
-        </ButtonPush>
+        <ButtonPush onClick={handleClick}>Добавить предмет</ButtonPush>
       </div>
       <DisciplinesTable />
     </>
