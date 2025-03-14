@@ -9,13 +9,13 @@ export function StudentBody() {
       <PageTitle>Таблица 2</PageTitle>
       <FilterStudent />
       <div className="mb-4">
-      <ButtonPush
-        onClick={() => {
-          console.log('Студент добавлен')
-        }}
-      >
-        Добавить
-      </ButtonPush>
+        <ButtonPush
+          onClick={() => {
+            console.log('Студент добавлен')
+          }}
+        >
+          Добавить
+        </ButtonPush>
       </div>
       <StudentTable />
     </>

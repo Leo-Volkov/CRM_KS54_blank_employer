@@ -2,7 +2,6 @@ import { ActiveTab } from '@/processe/Main/lib/types'
 import { TabLink } from '@/shared/ui/TabLink'
 import { useMatch } from 'react-router-dom'
 
-
 export function TabsMenu() {
   const matchDisciplines = useMatch('/disciplines')
   const matchStudentBody = useMatch('/student-body')

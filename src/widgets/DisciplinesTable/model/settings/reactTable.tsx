@@ -2,7 +2,7 @@ import { Group } from '@/entities/group/lib/types'
 import { NumberInput } from '@/shared/ui/NumberInput'
 import { ColumnDef } from '@tanstack/react-table'
 import { MIN_COURSE, MAX_COURSE, MIN_SEMESTER, MAX_SEMESTER } from '../../lib/consts'
-import { GroupCell } from '../../ui/GroupCell' // the new component
+import { GroupCell } from '../../ui/GroupCell'
 import { ListDiscipplines } from '@/features/ButtonListDiscipplines'
 
 export function getColumns(setData: React.Dispatch<React.SetStateAction<Group[]>>): ColumnDef<Group, any>[] {

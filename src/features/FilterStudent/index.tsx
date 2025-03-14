@@ -12,7 +12,7 @@ export function FilterStudent() {
         <input className="border rounded px-2 py-1" type="text" defaultValue="ИСП9 - 45" />
       </div>
       <ButtonPush
-        type='submit'
+        type="submit"
         onClick={() => {
           console.log('Найти')
         }}
