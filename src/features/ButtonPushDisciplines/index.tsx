@@ -51,37 +51,22 @@ export function ButtonPushDisciplines() {
 
   return (
     <>
-      <ButtonPush onClick={() => setIsOpen((prev) => !prev)}>
-        Добавить предмет
-      </ButtonPush>
-
+      <ButtonPush onClick={() => setIsOpen((prev) => !prev)}>Добавить предмет</ButtonPush>
       <ModalWrapper isOpen={isOpen} onClose={handleCancel}>
         <div className="max-w-md mx-auto p-6 bg-white rounded shadow-sm">
-          <h2 className="text-xl font-semibold mb-4">
-            Добавление группы и предметов
-          </h2>
+          <h2 className="text-xl font-semibold mb-4">Добавление группы и предметов</h2>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Курс (1/4)
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Курс (1/4)</label>
               <input
                 type="number"
                 placeholder="1"
                 className={`
                   border rounded px-3 py-2 w-full focus:outline-none
                   focus:ring-1 focus:ring-blue-500
-                  ${
-                    errors.course
-                      ? 'border-red-500'
-                      : 'border-gray-300'
-                  }
-                  ${
-                    !errors.course && watch('course')
-                      ? 'focus:border-green-500'
-                      : ''
-                  }
+                  ${errors.course ? 'border-red-500' : 'border-gray-300'}
+                  ${!errors.course && watch('course') ? 'focus:border-green-500' : ''}
                 `}
                 {...register('course', {
                   required: 'Курс обязателен',
@@ -98,33 +83,19 @@ export function ButtonPushDisciplines() {
                 })}
                 onBlur={() => trigger('course')}
               />
-              {errors.course && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.course.message}
-                </p>
-              )}
+              {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course.message}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Семестр (1/2)
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Семестр (1/2)</label>
               <input
                 type="number"
                 placeholder="2"
                 className={`
                   border rounded px-3 py-2 w-full focus:outline-none
                   focus:ring-1 focus:ring-blue-500
-                  ${
-                    errors.semester
-                      ? 'border-red-500'
-                      : 'border-gray-300'
-                  }
-                  ${
-                    !errors.semester && watch('semester')
-                      ? 'focus:border-green-500'
-                      : ''
-                  }
+                  ${errors.semester ? 'border-red-500' : 'border-gray-300'}
+                  ${!errors.semester && watch('semester') ? 'focus:border-green-500' : ''}
                 `}
                 {...register('semester', {
                   required: 'Семестр обязателен',
@@ -141,33 +112,19 @@ export function ButtonPushDisciplines() {
                 })}
                 onBlur={() => trigger('semester')}
               />
-              {errors.semester && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.semester.message}
-                </p>
-              )}
+              {errors.semester && <p className="text-red-500 text-sm mt-1">{errors.semester.message}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Специальность
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Специальность</label>
               <input
                 type="text"
                 placeholder="ИСП"
                 className={`
                   border rounded px-3 py-2 w-full focus:outline-none
                   focus:ring-1 focus:ring-blue-500
-                  ${
-                    errors.specialty
-                      ? 'border-red-500'
-                      : 'border-gray-300'
-                  }
-                  ${
-                    !errors.specialty && watch('specialty')
-                      ? 'focus:border-green-500'
-                      : ''
-                  }
+                  ${errors.specialty ? 'border-red-500' : 'border-gray-300'}
+                  ${!errors.specialty && watch('specialty') ? 'focus:border-green-500' : ''}
                 `}
                 {...register('specialty', {
                   required: 'Специальность обязательна',
@@ -184,71 +141,41 @@ export function ButtonPushDisciplines() {
                 })}
                 onBlur={() => trigger('specialty')}
               />
-              {errors.specialty && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.specialty.message}
-                </p>
-              )}
+              {errors.specialty && <p className="text-red-500 text-sm mt-1">{errors.specialty.message}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Выпускники (9/11)
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Выпускники (9/11)</label>
               <input
                 type="text"
                 placeholder="9"
                 className={`
                   border rounded px-3 py-2 w-full focus:outline-none
                   focus:ring-1 focus:ring-blue-500
-                  ${
-                    errors.graduation
-                      ? 'border-red-500'
-                      : 'border-gray-300'
-                  }
-                  ${
-                    !errors.graduation && watch('graduation')
-                      ? 'focus:border-green-500'
-                      : ''
-                  }
+                  ${errors.graduation ? 'border-red-500' : 'border-gray-300'}
+                  ${!errors.graduation && watch('graduation') ? 'focus:border-green-500' : ''}
                 `}
                 {...register('graduation', {
                   required: 'Укажите выпуск (9 или 11)',
                   validate: (val) =>
-                    val === '9' || val === '11'
-                      ? true
-                      : 'Выпускной класс должен быть либо 9, либо 11',
+                    val === '9' || val === '11' ? true : 'Выпускной класс должен быть либо 9, либо 11',
                 })}
                 onBlur={() => trigger('graduation')}
               />
-              {errors.graduation && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.graduation.message}
-                </p>
-              )}
+              {errors.graduation && <p className="text-red-500 text-sm mt-1">{errors.graduation.message}</p>}
             </div>
 
             {/* Номер группы */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Номер группы
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Номер группы</label>
               <input
                 type="number"
                 placeholder="45"
                 className={`
                   border rounded px-3 py-2 w-full focus:outline-none
                   focus:ring-1 focus:ring-blue-500
-                  ${
-                    errors.groupNumber
-                      ? 'border-red-500'
-                      : 'border-gray-300'
-                  }
-                  ${
-                    !errors.groupNumber && watch('groupNumber')
-                      ? 'focus:border-green-500'
-                      : ''
-                  }
+                  ${errors.groupNumber ? 'border-red-500' : 'border-gray-300'}
+                  ${!errors.groupNumber && watch('groupNumber') ? 'focus:border-green-500' : ''}
                 `}
                 {...register('groupNumber', {
                   required: 'Номер группы обязателен',
@@ -266,19 +193,10 @@ export function ButtonPushDisciplines() {
                 })}
                 onBlur={() => trigger('groupNumber')}
               />
-              {errors.groupNumber && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.groupNumber.message}
-                </p>
-              )}
+              {errors.groupNumber && <p className="text-red-500 text-sm mt-1">{errors.groupNumber.message}</p>}
             </div>
 
-            {/* if group already exists */}
-            {alreadyExistsError && (
-              <p className="text-red-500 text-sm">
-                Группа уже существует
-              </p>
-            )}
+            {alreadyExistsError && <p className="text-red-500 text-sm">Группа уже существует</p>}
 
             <div className="flex items-center gap-4 pt-2">
               <button

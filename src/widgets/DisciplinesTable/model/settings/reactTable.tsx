@@ -72,7 +72,7 @@ export function getColumns(setData: React.Dispatch<React.SetStateAction<Group[]>
       },
     },
     {
-      id: 'subjects',
+      id: 'discipplines',
       header: 'Предметы',
       cell: () => <ListDiscipplines />,
     },
