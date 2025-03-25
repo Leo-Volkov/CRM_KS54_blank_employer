@@ -1,25 +1,21 @@
-import { ButtonPush } from '@/shared/ui/ButtonPush'
+import { useState } from 'react'
+import { InputFilterGrup } from '../InputFilterGrup'
 
-export function FilterStudent() {
+export function FilterGrup() {
+  const [course, setCourse] = useState('1')
+  const [specialty, setSpecialty] = useState('ИСП')
+  const [graduates, setGraduates] = useState('11/11')
+  const [groupNumber, setGroupNumber] = useState('45')
+
   return (
-    <div className="flex gap-4 mb-4">
-      <div>
-        <label className="block mb-1">Курс</label>
-        <input className="border rounded px-2 py-1" type="number" defaultValue={2} />
+    <div className="border p-4 rounded-lg mb-4 w-[50%] min-w-min">
+      <h2 className="font-semibold mb-2">Фильтрация</h2>
+      <div className="flex flex-wrap content-start justify-between gap-1">
+        <InputFilterGrup title="Курс" value={course} onChange={(e) => setCourse(e.target.value)} />
+        <InputFilterGrup title="Специальность" value={specialty} onChange={(e) => setSpecialty(e.target.value)} />
+        <InputFilterGrup title="Выпускники (9/11)" value={graduates} onChange={(e) => setGraduates(e.target.value)} />
+        <InputFilterGrup title="Номер группы" value={groupNumber} onChange={(e) => setGroupNumber(e.target.value)} />
       </div>
-      <div>
-        <label className="block mb-1">Группа</label>
-        <input className="border rounded px-2 py-1" type="text" defaultValue="ИСП9 - 45" />
-      </div>
-      <ButtonPush
-        type="submit"
-        onClick={() => {
-          console.log('Найти')
-        }}
-        className="self-end"
-      >
-        Найти
-      </ButtonPush>
     </div>
   )
 }
