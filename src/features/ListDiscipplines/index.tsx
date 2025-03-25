@@ -33,15 +33,13 @@ export const ListDiscipplines = () => {
   })
 
   const handlerAddDiscipline = () => {
-    setData(
-      (oldData) => [
-        ...oldData,
-        {
-          id: oldData.length + 1,
-          discipline: '',
-        },
-      ],
-    )
+    setData((oldData) => [
+      ...oldData,
+      {
+        id: oldData.length + 1,
+        discipline: '',
+      },
+    ])
   }
   return (
     <>

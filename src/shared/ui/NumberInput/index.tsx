@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 
 interface NumberInputProps {
   value: number
@@ -9,10 +9,10 @@ interface NumberInputProps {
 }
 
 export function NumberInput({ value, onChange, min, max, classnames = '' }: NumberInputProps) {
-  const [inputValue, setInputValue] = React.useState(String(value))
+  const [inputValue, setInputValue] = useState(String(value))
 
   // Синхронизируем локальное состояние с внешним значением
-  React.useEffect(() => {
+  useEffect(() => {
     setInputValue(String(value))
   }, [value])
 

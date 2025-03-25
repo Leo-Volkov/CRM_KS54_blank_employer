@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Error404Page } from '../../pages/Error404Page'
-import { Disciplines, StudentBody } from '../../pages/main'
-import { LayoutMain } from '../../processe/Main'
+import { PagesListGrup } from '@/pages/PagesListGrup'
+import { Blank } from '@/pages/Blank'
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LayoutMain />}>
-          <Route index element={<Disciplines />} />
-          <Route path="disciplines" element={<Disciplines />} />
-          <Route path="student-body" element={<StudentBody />} />
+        <Route path="/" element={<PagesListGrup />}>
+          <Route index element={<PagesListGrup />} />
+          <Route path="blank" element={<Blank />} />
+          <Route path="list-grup" element={<PagesListGrup />} />
         </Route>
 
         <Route path="*" element={<Error404Page />} />
@@ -18,5 +18,4 @@ const AppRoutes = () => {
     </Router>
   )
 }
-
 export default AppRoutes
