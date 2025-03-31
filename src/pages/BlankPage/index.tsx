@@ -1,4 +1,25 @@
+import { VirtualizedSearch } from '@/features/VirtualizedSearch'
+import { EditableTitle } from '@/shared/ui/EditableTitle'
+import { LinkDocument } from '@/shared/ui/LinkDocument'
 import { useState } from 'react'
+
+
+const studentsData = [
+  { id: 1, fullName: 'Иванов Иван Иванович' },
+  { id: 2, fullName: 'Иванов Пётр Геннадьевич' },
+  { id: 3, fullName: 'Сидоров Семён Степанович' },
+  { id: 4, fullName: 'Петров Петр Петрович' },
+  { id: 5, fullName: 'Иванов Иван Иванович' },
+  { id: 6, fullName: 'Иванов Пётр Геннадьевич' },
+  { id: 7, fullName: 'Сидоров Семён Степанович' },
+  { id: 8, fullName: 'Петров Петр Петрович' },
+  { id: 9, fullName: 'Иванов Иван Иванович' },
+  { id: 10, fullName: 'Иванов Пётр Геннадьевич' },
+  { id: 11, fullName: 'Сидоров Семён Степанович' },
+  { id: 12, fullName: 'Петров Петр Петрович' },
+  { id: 13, fullName: 'Иванов Иван Иванович' },
+  // ... большой список
+]
 
 interface BlankPageProps {
   groupName: string // например, "1ИСП9 - 45"
@@ -13,7 +34,10 @@ export function BlankPage({ groupName }: BlankPageProps) {
   const [company, setCompany] = useState('ООО “Купишуз”')
   const [startDate, setStartDate] = useState('25.05.2023')
   const [position, setPosition] = useState('Оператор WMS')
-
+  const handleSelectStudent = (student: { id: number; fullName: string }) => {
+    console.log('Выбран студент:', student)
+    setStudents(student.fullName)
+  }
   // Обработчики
   const handleSave = () => {
     // Логика сохранения: например, отправка данных на сервер или в Go-функцию.
@@ -32,11 +56,22 @@ export function BlankPage({ groupName }: BlankPageProps) {
     console.log('Скачать бланк...')
     alert('Загружаем бланк...')
   }
+  const handleTitleSave = (newValue: string) => {
+    console.log('Сохранённое название BlankPage:', newValue)
+  }
 
   return (
     <div className="p-4">
       {/* Заголовок с названием группы */}
-      <h1 className="text-2xl font-bold mb-6">Группа: {groupName}</h1>
+      <div className="flex w-full">
+        <h1 className="inline-block text-2xl font-bold mb-6">
+          Группа:{' '}
+          <span className="ml-1">
+            <EditableTitle initialValue={groupName} onSave={handleTitleSave} className="w-min" />
+          </span>
+        </h1>
+        <LinkDocument href="#">Открыть xlsx студентов</LinkDocument>
+      </div>
 
       {/* Семестр и студенты */}
       <div className="mb-4 flex items-center gap-4">
@@ -49,20 +84,12 @@ export function BlankPage({ groupName }: BlankPageProps) {
             onChange={(e) => setSemester(e.target.value)}
           />
         </label>
-        <label className="flex items-center gap-2">
-          <span className="font-semibold">Студенты:</span>
-          <input
-            type="text"
-            className="border p-1 rounded"
-            value={students}
-            onChange={(e) => setStudents(e.target.value)}
-          />
-        </label>
-
-        {/* Ссылка "Открыть xlsx студентов" */}
-        <a href="#" className="text-blue-600 hover:underline whitespace-nowrap">
-          Открыть xlsx студентов
-        </a>
+        <VirtualizedSearch
+        data={studentsData}
+        placeholder="Введите фамилию..."
+        maxDropdownHeight={200}
+        onSelect={handleSelectStudent}
+      />
       </div>
 
       {/* Предприятие */}
